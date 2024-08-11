@@ -1,0 +1,33 @@
+[project]
+name = "evernote-sdk"
+description = "Evernote SDK for Python 3 (Unofficial)"
+authors = [
+    { name = "Sean Champ", email = "spchamp@users.noreply.github.com" },
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = { file = "LICENSE" }
+dynamic = ['version']
+classifiers = [
+    # 'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: BSD License',
+    'Topic :: Software Development :: Libraries',
+    "Private :: Do not Upload",
+]
+dependencies = ["thrift", "oauth2"]
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["lib"]
+include = ["evernote"]
+exclude = ["*.thrift", "*.thrift.*", "thrift.*", "thrift"]
+
+[tool.setuptools.dynamic]
+version = { attr = "evernote.VERSION" }
+
+[tool.pdm]
+distribution = true
